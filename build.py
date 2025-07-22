@@ -299,6 +299,10 @@ def main():
             windows_flags = windows_flags.replace('x64', 'x86')
         elif args.arm:
             windows_flags = windows_flags.replace('x64', 'arm64')
+
+        if args.tarball:
+            windows_flags = windows_flags.replace('chrome_pgo_phase=2', 'chrome_pgo_phase=0')
+
         gn_flags += windows_flags
         if args.dev:
             gn_flags += 'is_component_build=true'
