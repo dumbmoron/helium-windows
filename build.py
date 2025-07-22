@@ -143,6 +143,10 @@ def main():
         '--tarball',
         action='store_true'
     )
+    parser.add_argument(
+        '--dev',
+        action='store_true'
+    )
     args = parser.parse_args()
 
     # Set common variables
@@ -162,7 +166,7 @@ def main():
         }
 
         # Prepare source folder
-        if args.tarball:
+        if args.tarball or args.dev:
             # Download chromium tarball
             get_logger().info('Downloading chromium tarball...')
             download_info = downloads.DownloadInfo([_ROOT_DIR / 'helium-chromium' / 'downloads.ini'])
@@ -284,6 +288,11 @@ def main():
         if args.tarball:
             windows_flags += '\nchrome_pgo_phase=0\n'
         gn_flags += windows_flags
+        if args.dev:
+            gn_flags += 'is_component_build=true'
+        else:
+            gn_flags += 'is_official_build=true'
+
         (source_tree / 'out/Default/args.gn').write_text(gn_flags, encoding=ENCODING)
 
     # Enter source tree to run build commands
