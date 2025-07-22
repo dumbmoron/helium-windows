@@ -166,7 +166,7 @@ def main():
         }
 
         # Prepare source folder
-        if args.tarball or args.dev:
+        if args.tarball:
             # Download chromium tarball
             get_logger().info('Downloading chromium tarball...')
             download_info = downloads.DownloadInfo([_ROOT_DIR / 'helium-chromium' / 'downloads.ini'])
