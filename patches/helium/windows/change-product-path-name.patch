@@ -1,0 +1,22 @@
+--- a/chrome/install_static/chromium_install_modes.cc
++++ b/chrome/install_static/chromium_install_modes.cc
+@@ -12,12 +12,16 @@
+ 
+ namespace install_static {
+ 
+-const wchar_t kCompanyPathName[] = L"";
++const wchar_t kCompanyPathName[] = L"imput";
+ 
+-const wchar_t kProductPathName[] = L"Chromium";
++#if defined(OFFICIAL_BUILD)
++const wchar_t kProductPathName[] = L"Helium";
++#else
++const wchar_t kProductPathName[] = L"Helium Dev";
++#endif
+ 
+ const size_t kProductPathNameLength = _countof(kProductPathName) - 1;
+ 
+-const char kSafeBrowsingName[] = "chromium";
++const char kSafeBrowsingName[] = "helium";
+ 
+ }  // namespace install_static
