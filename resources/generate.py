@@ -21,10 +21,6 @@ def generate_icons(resources_root):
     generate_ico(sources_dir / 'IconCropped.png', output_dir / 'app.ico')
     generate_ico(sources_dir / 'IconFile.png', output_dir / 'document.ico')
 
-    resize_png(sources_dir / 'IconFull.png', output_dir / 'icon.png', 600)
-    resize_png(sources_dir / 'IconCropped.png', output_dir / 'icon_small.png', 176)
-
-
 def main():
     generate_icons(Path(__file__).resolve().parent)
 
