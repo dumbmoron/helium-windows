@@ -22,7 +22,7 @@ import shutil
 import subprocess
 import ctypes
 from pathlib import Path
-# import resources.generate
+import resources.generate
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / 'helium-chromium' / 'utils'))
 import downloads
@@ -278,14 +278,12 @@ def main():
         # Copy resources
 
         # First, generate and copy Windows-specific resources
-        # FIXME: add icons for windows
-
-        # resources.generate.generate_icons(_ROOT_DIR / 'resources')
-        # replace_resources.copy_resources(
-        #     _ROOT_DIR / 'resources' / 'platform_resources.txt',
-        #     _ROOT_DIR / 'resources',
-        #     source_tree
-        # )
+        resources.generate.generate_icons(_ROOT_DIR / 'resources')
+        replace_resources.copy_resources(
+            _ROOT_DIR / 'resources' / 'platform_resources.txt',
+            _ROOT_DIR / 'resources',
+            source_tree
+        )
 
         # Then common helium-chromium resources
         replace_resources.copy_resources(
