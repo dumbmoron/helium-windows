@@ -1,3 +1,4 @@
 /build
 /.gcs_entries
 /resources/generated/
+__pycache__
