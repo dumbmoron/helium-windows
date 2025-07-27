@@ -820,7 +820,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
 
   build-arm-1:
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -846,7 +846,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-2:
     needs: build-arm-1
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -872,7 +872,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-3:
     needs: build-arm-2
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -898,7 +898,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-4:
     needs: build-arm-3
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -924,7 +924,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-5:
     needs: build-arm-4
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -950,7 +950,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-6:
     needs: build-arm-5
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -976,7 +976,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-7:
     needs: build-arm-6
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -1002,7 +1002,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-8:
     needs: build-arm-7
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -1028,7 +1028,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-9:
     needs: build-arm-8
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -1054,7 +1054,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-10:
     needs: build-arm-9
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -1080,7 +1080,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-11:
     needs: build-arm-10
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -1106,7 +1106,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-12:
     needs: build-arm-11
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -1132,7 +1132,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-13:
     needs: build-arm-12
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -1158,7 +1158,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-14:
     needs: build-arm-13
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -1184,7 +1184,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-15:
     needs: build-arm-14
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -1210,7 +1210,7 @@ jobs:
       finished: ${{ steps.stage.outputs.finished }}
   build-arm-16:
     needs: build-arm-15
-    runs-on: windows-2022
+    runs-on: windows-11-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v3
