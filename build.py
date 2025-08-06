@@ -338,6 +338,7 @@ def main():
             windows_flags = windows_flags.replace('chrome_pgo_phase=2', 'chrome_pgo_phase=0')
 
         if shutil.which('sccache'):
+            print("using sccache")
             windows_flags += 'cc_wrapper = "sccache"\n'
 
         gn_flags += windows_flags
