@@ -18,6 +18,9 @@ jobs:
     if: needs.{{ prefix }}-{{ n }}.outputs.finished == false
 {%- endif %}
     runs-on: windows-2022
+    env:
+      SCCACHE_GHA_ENABLED: "true"
+      RUSTC_WRAPPER: "sccache"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -42,9 +45,6 @@ jobs:
           {%- if arch == "arm" %}
           arm: true
           {%- endif %}
-        env:
-          SCCACHE_GHA_ENABLED: "true"
-          RUSTC_WRAPPER: "sccache"
     outputs:
       finished: {% raw %}${{ steps.stage.outputs.finished }}{% endraw %}
 {%- endfor %}
@@ -53,6 +53,9 @@ jobs:
 {%- raw %}
     if: ${{ !cancelled() && !failure() }}
     runs-on: windows-2022
+    env:
+      SCCACHE_GHA_ENABLED: "true"
+      RUSTC_WRAPPER: "sccache"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
