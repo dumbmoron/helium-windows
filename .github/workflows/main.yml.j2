@@ -15,6 +15,7 @@ jobs:
   {{ prefix }}-{{ n + 1 }}:
 {%- if n %}
     needs: {{ prefix }}-{{ n }}
+    if: {% raw %}${{{% endraw %} !needs.{{ prefix }}-{{ n }}.outputs.finished }}
 {%- endif %}
     runs-on: windows-2022
     steps:
@@ -56,6 +57,7 @@ jobs:
   {{ prefix }}-final:
     needs: {{ prefix }}-15
 {%- raw %}
+    if: ${{ !cancelled() && !failure() }}
     runs-on: windows-2022
     steps:
       - name: Checkout
