@@ -33,9 +33,9 @@ async function run() {
     if (from_artifact && !same_runner) {
         const artifactInfo = await artifact.getArtifact(artifactName);
         await artifact.downloadArtifact(artifactInfo.artifact.id, {path: 'C:\\helium-windows\\build'});
-        await exec.exec('7z', ['x', 'C:\\helium-windows\\build\\artifacts.zip',
+        await exec.exec('7z', ['x', 'C:\\helium-windows\\build\\artifacts.7z',
             '-oC:\\helium-windows\\build', '-y']);
-        await io.rmRF('C:\\helium-windows\\build\\artifacts.zip');
+        await io.rmRF('C:\\helium-windows\\build\\artifacts.7z');
     }
 
     const args = ['build.py', '--ci', String(started_at)]
@@ -110,8 +110,8 @@ async function run() {
         }
     } else {
         await new Promise(r => setTimeout(r, 5000));
-        await exec.exec('7z', ['a', '-tzip', 'C:\\helium-windows\\artifacts.zip',
-            'C:\\helium-windows\\build\\src', '-mx=3', '-mtc=on'], {ignoreReturnCode: true});
+        await exec.exec('7z', ['a', '-t7z', 'C:\\helium-windows\\artifacts.7z',
+            'C:\\helium-windows\\build\\src', '-mx=1', '-mmt=on', '-mtc=on'], {ignoreReturnCode: true});
         for (let i = 0; i < 5; ++i) {
             try {
                 await artifact.deleteArtifact(artifactName);
@@ -119,7 +119,7 @@ async function run() {
                 // ignored
             }
             try {
-                await artifact.uploadArtifact(artifactName, ['C:\\helium-windows\\artifacts.zip'],
+                await artifact.uploadArtifact(artifactName, ['C:\\helium-windows\\artifacts.7z'],
                     'C:\\helium-windows', { compressionLevel: 0 });
                 break;
             } catch (e) {
