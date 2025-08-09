@@ -6,6 +6,8 @@ const glob = require('@actions/glob');
 const path = require('path');
 
 async function run() {
+    const started_at = Math.floor(new Date() / 1000);
+
     process.on('SIGINT', function() {
     })
     const finished = core.getBooleanInput('finished', {required: true});
@@ -36,7 +38,7 @@ async function run() {
         await io.rmRF('C:\\helium-windows\\build\\artifacts.zip');
     }
 
-    const args = ['build.py', '--ci']
+    const args = ['build.py', '--ci', String(started_at)]
     if (arm)
         args.push('--arm')
 
