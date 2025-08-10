@@ -385,10 +385,10 @@ def main():
             subprocess.run([sys.executable, 'package.py'])
         elif not args.build_installer:
             _run_build_process_timeout('third_party\\ninja\\ninja.exe', '-C', 'out\\Default', 'chrome',
-                                       'chromedriver', 'setup', timeout=timeout)
+                                       'chromedriver', 'setup', timeout=30)
         else:
             _run_build_process_timeout('third_party\\ninja\\ninja.exe', '-C', 'out\\Default',
-                                       'mini_installer', timeout=timeout)
+                                       'mini_installer', timeout=30)
     else:
         _run_build_process('third_party\\ninja\\ninja.exe', '-C', 'out\\Default', 'chrome',
                            'chromedriver', 'mini_installer')
