@@ -31,7 +31,7 @@ async function run() {
         await io.rmRF('C:\\helium-windows\\build\\artifacts.7z');
     }
 
-    const args = ['build.py', '--ci', String(started_at)]
+    const args = ['build.py', '--tarball', '--ci', String(started_at)]
     if (arm)
         args.push('--arm')
 
@@ -65,7 +65,7 @@ async function run() {
     }
 
     core.setOutput('finished', retCode === 0);
-
+    console.log(`core.setOutput('finished', ${retCode === 0});`);
     if (make_sign_artifact) {
         if (retCode !== 0) throw "build was unsuccessful";
 
@@ -101,7 +101,7 @@ async function run() {
                 await new Promise(r => setTimeout(r, 10000));
             }
         }
-    } else {
+    } else { /*
         await new Promise(r => setTimeout(r, 5000));
         await exec.exec('7z', ['a', '-t7z', 'C:\\helium-windows\\artifacts.7z',
             'C:\\helium-windows\\build\\src', '-mx=1', '-mmt=on', '-mtc=on'], {ignoreReturnCode: true});
@@ -121,6 +121,7 @@ async function run() {
                 await new Promise(r => setTimeout(r, 10000));
             }
         }
+            */
     }
 }
 
