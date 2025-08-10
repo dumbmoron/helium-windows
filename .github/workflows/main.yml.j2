@@ -15,7 +15,7 @@ jobs:
   {{ prefix }}-{{ n + 1 }}:
 {%- if n %}
     needs: {{ prefix }}-{{ n }}
-    if: needs.{{ prefix }}-{{ n }}.outputs.finished == '"false"'
+    if: needs.{{ prefix }}-{{ n }}.outputs.finished == 'false'
 {%- endif %}
     runs-on: windows-2022
     steps:
