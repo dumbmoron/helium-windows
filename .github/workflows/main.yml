@@ -57,6 +57,7 @@ jobs:
 
   publish-release:
     needs: [build-final, build-arm-final]
+    if: ${{ !cancelled() && !failure() && success() }}
     runs-on: ubuntu-latest
     steps:
       - name: Download package
