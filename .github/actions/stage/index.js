@@ -101,8 +101,9 @@ async function run() {
                 await new Promise(r => setTimeout(r, 10000));
             }
         }
-    } else {
-        await new Promise(r => setTimeout(r, 5000));
+    }
+
+    if (!gen_installer && !make_sign_artifact) {
         await exec.exec('7z', ['a', '-t7z', 'C:\\helium-windows\\artifacts.7z',
             'C:\\helium-windows\\build\\src', '-mx=1', '-mmt=on', '-mtc=on'], {ignoreReturnCode: true});
         for (let i = 0; i < 5; ++i) {
