@@ -6,10 +6,12 @@ on:
 
 jobs:
   dummy-1:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - run: echo 1
   dummy-1-arm:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - run: echo 1
